@@ -1,0 +1,14 @@
+python-dotenv
+
+# Django
+django
+whitenoise
+
+# Databases
+dj-database-url
+
+# Telegram
+python-telegram-bot[passport,json]
+pywaves
+pycryptodome
+pynacl

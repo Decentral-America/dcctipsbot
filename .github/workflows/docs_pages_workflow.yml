@@ -1,0 +1,25 @@
+name: docs_pages_workflow
+ 
+# execute this workflow on command
+on: workflow_dispatch
+ 
+jobs:
+ 
+  build_docs_job:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+        architecture: 'x64'
+ 
+    - name: Execute script to build our documentation and update pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: "docs/buildDocs.sh"
+      shell: bash

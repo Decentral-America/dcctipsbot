@@ -1,0 +1,11 @@
+--- #Optional YAML start syntax
+- name: Install and configure environment for Telegram Open Protocol
+  hosts: localhost
+  become: true
+  become_user: root
+  vars_files:
+    - group_vars/all.yml
+  roles:
+    - update-system
+    - gantsign.visual-studio-code
+    - pip

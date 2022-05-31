@@ -1,0 +1,13 @@
+--- #Optional YAML start syntax
+req_path: ../src/
+req_file: requirements.txt
+pip_package: python3-pip
+pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"
+pip_install_packages:
+  - name: gitpython
+  - name: sphinx
+  - name: sphinx_rtd_theme
+  - name: sphinx-rtd-dark-mode
+  - name: sphinx_copybutton
+  - name: rinohtype
+  - name: sphinx-intl
