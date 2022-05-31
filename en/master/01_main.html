@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Description &mdash; Telegram Open Protocol 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="DCC Tips Bot" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Telegram Open Protocol
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Telegram Open Protocol</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Description</li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h1>
+<p><a class="reference external" href="https://t.me/DCCTipsBot">DCC Tips Bot</a> is a chatbot, powered by the <a class="reference external" href="https://decentralchain.io/">DecentralChain</a> blockchain, it enables sending tips of any asset on the blockchain to Telegram users by tagging their username (the recipient must have a username set up on their Telegram account for the bot to work correctly).</p>
+<p>The bot automatically creates a <a class="reference external" href="https://decentral.exchange/">Decentral.Exchange</a> wallet for each user and provides several useful commands to help manage it.</p>
+<p>Please keep in mind that the created wallet should never be used as the primary one, it’s meant for tipping only therefore avoid storing large amounts of funds due to potential security flaws. Keys are stored somewhere, we are not responsible for any lost of funds.</p>
+</section>
+<section id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h1>
+<p>Check out the available commands offered by the bot:</p>
+<ul class="simple">
+<li><p>/help - show help message.</p></li>
+<li><p>/address - show the address on your tipping wallet.</p></li>
+<li><p>/seed - show the seed on your tipping wallet.</p></li>
+<li><p>/dcc_balance - show the DCC balance on your tipping wallet.</p></li>
+<li><p>/all_balances - show ALL the balances on your tipping wallet.</p></li>
+<li><p>/tipping &lt;username&gt; &lt;amount&gt; &lt;token&gt; - tip a user tagging their username.</p></li>
+<li><p>/withdraw &lt;address&gt; &lt;amount&gt; &lt;token&gt; - withdraw to a DecentralChain address.</p></li>
+<li><p>/stats - show the amount of users on the bot.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="DCC Tips Bot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Blockchain Costa Rica.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: master
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+      <dl>
+        <dt>Languages</dt>
+        
+           <strong> 
+          <dd><a href="/dcctipsbot/en/master/">en</a></dd>
+           </strong> 
+        
+          
+          <dd><a href="/dcctipsbot/es/master/">es</a></dd>
+          
+        
+      </dl>
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+           <strong> 
+          <dd><a href="/dcctipsbot/en/master/">master</a></dd>
+           </strong> 
+        
+      </dl>
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="/dcctipsbot/en/master/Telegram Open Protocol-docs_en_master.epub">epub</a></dd>
+        
+      </dl>
+      
+      
+      <hr/>
+ 
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
