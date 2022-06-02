@@ -1,5 +1,6 @@
 user_address = f'Your DecentralChain address is: '
-user_seed = f'Your DecentralChain seed is: '
+user_seed = f'Your DecentralChain seed is: ' 
+secret = f'DO NOT SHARE your seed phrase with anyone. Store it in a secure and private place that only you have access to.'
 dcc_balance = f'Your DecentralCoin balance is: '
 private = 'The information was sent to you private by {bot_name}.'
 processing = f'Securely processing your request. ⏰'

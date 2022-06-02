@@ -2,7 +2,6 @@ import logging
 import traceback
 import html
 
-import telegram
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext
 
@@ -25,8 +24,7 @@ def send_stacktrace_to_tg_chat(update: Update, context: CallbackContext) -> None
     )
 
     user_message = """
-😔 Something broke inside the bot.
-We are constantly improving our service. We already received all the details to fix the issue.
+😔 Something broke inside the bot. We are constantly improving our service. We already received all the details to fix the issue.
 Return to /start
 """
     context.bot.send_message(chat_id=u.user_id, text=user_message)

@@ -1,4 +1,3 @@
-import ujson
 from base64 import b64encode, b64decode
 from Crypto.Cipher import ChaCha20_Poly1305
 from Crypto.Random import get_random_bytes
@@ -23,15 +22,14 @@ def encrypt(plaintext) -> Dict:
     #Return JSON
     jk = [ 'salt', 'pass_hash', 'nonce', 'ciphertext', 'tag' ]
     jv = [ b64encode(x).decode('utf-8') for x in (salt, pass_hash, nonce, ciphertext, tag) ]
-    result = ujson.dumps(dict(zip(jk, jv)))
+    result = dict(zip(jk, jv))
     return result
 
 def decrypt(encrypted_dict) -> str:
     password = KEY.encode('utf8')
     try:
-        b64 = ujson.loads(encrypted_dict)
         jk = [ 'salt', 'pass_hash', 'nonce', 'ciphertext', 'tag' ]
-        jv = {k:b64decode(b64[k]) for k in jk}
+        jv = {k:b64decode(encrypted_dict[k]) for k in jk}
         #Argon 2id
         pwhash.argon2id.verify(jv['pass_hash'], password)
         derived_key = pwhash.argon2id.kdf(32, password, jv['salt'], opslimit=opslimit, memlimit=memlimit)

@@ -6,8 +6,8 @@ import logging
 from typing import Dict
 
 import telegram.error
-from telegram import Bot, Update, BotCommand
-from telegram.ext import (Updater, Dispatcher, CommandHandler, CallbackQueryHandler, )
+from telegram import Bot, BotCommand
+from telegram.ext import (Updater, Dispatcher, CommandHandler)
 
 from dtb.settings import TELEGRAM_TOKEN, DEBUG
 from tgbot.handlers.utils import error

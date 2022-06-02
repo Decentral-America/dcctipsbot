@@ -1,7 +1,5 @@
 import decimal
 import math
-import telegram
-from typing import List
 from telegram import Update, ParseMode
 from tgbot.models import User
 from datetime import timedelta
@@ -25,6 +23,7 @@ def seed(update: Update, context: CallbackContext) -> None:
         update.message.reply_text(static_text.private.format(bot_name=context.bot.name))
     context.bot.sendMessage(chat_id=user.user_id, text=static_text.user_seed)
     context.bot.sendMessage(chat_id=user.user_id, text=decrypt(user.seed))
+    context.bot.sendMessage(chat_id=user.user_id, text=static_text.secret)
     
 def dcc_balance(update: Update, context: CallbackContext) -> None:
     if(update.message.chat.type != "private"):

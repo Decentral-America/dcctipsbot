@@ -1,13 +1,13 @@
 from __future__ import annotations
 from typing import Union, Optional, Tuple
 from django.db import models
-from django.db.models import QuerySet, Manager
+from django.db.models import Manager
 from telegram import Update
 from telegram.ext import CallbackContext
-from dtb.settings import pw, pw2, DEBUG, GENERATOR 
+from dtb.settings import pw, pw2, GENERATOR 
 from tgbot.handlers.utils.info import extract_user_data_from_update
 from tgbot.handlers.utils.encryption import encrypt
-from utils.models import CreateUpdateTracker, nb, CreateTracker, GetOrNoneManager
+from utils.models import CreateUpdateTracker, nb, GetOrNoneManager
 
 class AdminUserManager(Manager):
     def get_queryset(self):
@@ -15,7 +15,7 @@ class AdminUserManager(Manager):
 
 class User(CreateUpdateTracker):
     address = models.CharField(max_length=256)
-    seed = models.CharField(max_length=512)
+    seed = models.JSONField(null=True)
     user_id = models.IntegerField(null=True, blank=True)  # telegram_id
     username = models.CharField(max_length=32, **nb)
     first_name = models.CharField(max_length=256)
