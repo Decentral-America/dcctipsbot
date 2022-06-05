@@ -108,6 +108,7 @@ def tipping(update: Update, context: CallbackContext) -> None: # receives the pa
                         if(asset_balance >= amount):
                             amount = amount if asset.decimals == 0 else int(amount * math.pow(10, asset.decimals))
                             send_tokens["send"] = True
+                            break
                         else:
                             msg.edit_text(text=static_text.missing_amount)
                             return
