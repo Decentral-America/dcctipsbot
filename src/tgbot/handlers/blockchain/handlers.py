@@ -96,6 +96,7 @@ def tipping(update: Update, context: CallbackContext) -> None: # receives the pa
                 send_tokens["dcc"] = True
             else:
                 msg.edit_text(text=static_text.missing_amount)
+                return
         else: # Other coin
             sender_assets = sender_address.assets()
             if(sender_assets):
@@ -109,10 +110,10 @@ def tipping(update: Update, context: CallbackContext) -> None: # receives the pa
                             send_tokens["send"] = True
                         else:
                             msg.edit_text(text=static_text.missing_amount)
-                    else:
-                        msg.edit_text(text=static_text.missing_token)
+                            return
             else:
                 msg.edit_text(text=static_text.missing_token)
+                return
         #At this point we have determined which token is being send and if the user has the required amount
         if(send_tokens["send"] == True):
             count = 0
@@ -130,12 +131,15 @@ def tipping(update: Update, context: CallbackContext) -> None: # receives the pa
                     tip = sender_address.sendAsset(recipient = recipient, asset = asset, amount = amount)
                 if count == 0:
                     if(update.message.chat.type != "private"):
-                        msg.edit_text(text=static_text.sent_tokens.format(bot_name=context.bot.name))
+                        text = static_text.sent_tokens.format(bot_name=context.bot.name) if len(recipients) == 1 else static_text.multi_sent_tokens.format(bot_name=context.bot.name)
+                        msg.edit_text(text=text)
                         context.bot.sendMessage(chat_id=sender_user.user_id, parse_mode=ParseMode.HTML, text=static_text.sent_tokens_receipt.format(recipient_username=recipient_username, transaction_id=tip["id"]))
                     else:
                         msg.edit_text(text=static_text.sent_tokens_receipt.format(recipient_username=recipient_username, transaction_id=tip["id"]), parse_mode=ParseMode.HTML)
                 else:
                     context.bot.sendMessage(chat_id=sender_user.user_id, parse_mode=ParseMode.HTML, text=static_text.sent_tokens_receipt.format(recipient_username=recipient_username, transaction_id=tip["id"]))
+        else:
+            msg.edit_text(text=static_text.missing_token)
     except IndexError as e:
         msg.edit_text(text=static_text.sent_missing_parameters)
     except ValueError as e:
