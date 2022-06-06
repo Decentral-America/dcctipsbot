@@ -11,19 +11,18 @@ from tgbot.handlers.utils.encryption import encrypt, decrypt
 
 def address(update: Update, context: CallbackContext) -> None:
     user, _ = User.get_user(update, context)
+    text = static_text.user_address + user.address
     if(update.message.chat.type != "private"):
-        update.message.reply_text(text=static_text.user_address)
+        update.message.reply_text(text=text)
     else:
-        context.bot.send_message(chat_id=user.user_id, text=static_text.user_address)
-    context.bot.send_message(chat_id=update.message.chat_id, text=user.address)
+        context.bot.send_message(chat_id=user.user_id, text=text)
 
 def seed(update: Update, context: CallbackContext) -> None:
     user, _ = User.get_user(update, context)
     if(update.message.chat.type != "private"):
         update.message.reply_text(static_text.private.format(bot_name=context.bot.name))
-    context.bot.sendMessage(chat_id=user.user_id, text=static_text.user_seed)
-    context.bot.sendMessage(chat_id=user.user_id, text=decrypt(user.seed))
-    context.bot.sendMessage(chat_id=user.user_id, text=static_text.secret)
+    text = static_text.user_seed + decrypt(user.seed) + static_text.secret
+    context.bot.sendMessage(chat_id=user.user_id, text=text)
     
 def dcc_balance(update: Update, context: CallbackContext) -> None:
     if(update.message.chat.type != "private"):
