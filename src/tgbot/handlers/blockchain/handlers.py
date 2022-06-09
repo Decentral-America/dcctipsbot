@@ -176,6 +176,7 @@ def withdraw(update: Update, context: CallbackContext) -> None:
                 send_tokens["dcc"] = True
             else:
                 msg.edit_text(text=static_text.missing_amount)
+                return
         else: # Other coin
             sender_assets = sender_address.assets()
             if(sender_assets):
@@ -186,13 +187,14 @@ def withdraw(update: Update, context: CallbackContext) -> None:
                         asset_balance = sender_address.balance(asset_id) / int(math.pow(10, asset.decimals))
                         if(asset_balance >= amount):
                             amount = amount if asset.decimals == 0 else int(amount * math.pow(10, asset.decimals))
-                            send_tokens["send"] = True                            
+                            send_tokens["send"] = True  
+                            break                          
                         else:
                             msg.edit_text(text=static_text.missing_amount)
-                    else:
-                        msg.edit_text(text=static_text.missing_token)
+                            return
             else:
                 msg.edit_text(text=static_text.missing_token)
+                return
         #At this point we have determined which token is being send and if the user has the required amount
         if(send_tokens["send"] == True):
             recipient = pw.Address(recipient_address, pywaves=pw2)
@@ -205,6 +207,8 @@ def withdraw(update: Update, context: CallbackContext) -> None:
                 context.bot.sendMessage(chat_id=sender_user.user_id, parse_mode=ParseMode.HTML, text=static_text.withdrawn_tokens_receipt.format(transaction_id=withdraw["id"]))
             else:
                  msg.edit_text(text=static_text.withdrawn_tokens_receipt.format(transaction_id=withdraw["id"]), parse_mode=ParseMode.HTML)
+        else:
+            msg.edit_text(text=static_text.missing_token)    
     except IndexError as e:
         msg.edit_text(text=static_text.withdrawn_missing_parameters)
     except ValueError as e:

@@ -9,7 +9,7 @@ missing_amount = f'You don\'t have enough amount of tokens to make this transact
 missing_token = f'You don\'t have any tokens with this name. To check all your tokens use the command /all_balances'
 missing_username = 'You can only tip other users by tagging their username, make sure to include it. Usernames start with \'@\', for example {bot_name}.'
 sent_tokens = 'Your tip was successfully sent. Check the details with {bot_name}.'
-multi_sent_tokens = 'Your tips are currently being send. Check the details of each tip with {bot_name}.'
+multi_sent_tokens = 'Your tips are currently being sent. Check the details of each tip with {bot_name}.'
 sent_tokens_receipt = 'Your tip to @{recipient_username} was successfully sent. You can check the details of the tip <a href="https://decentralscan.com/tx/{transaction_id}">here</a>.'
 sent_missing_parameters = 'The command is not being used correctly. The correct format is /tipping username amount token'
 withdrawn_tokens = 'Your withdraw was successful. You can check the details with {bot_name}.'
