@@ -30,7 +30,7 @@ class User(CreateUpdateTracker):
     
     @classmethod
     def create_by_seed(cls, address, seed, username):
-        data = {'address' : address, 'seed' : seed, 'username' : username}
+        data = {'address' : address, 'seed' : seed, 'username' : username.replace("@", "").strip().lower()}
         cls.objects.create(**data)   
 
     @classmethod
